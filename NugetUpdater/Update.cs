@@ -1,9 +1,8 @@
-﻿using System;
+﻿using NuGet;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Xml.Serialization;
-using NuGet;
 
 namespace NugetUpdater
 {
@@ -88,25 +87,6 @@ namespace NugetUpdater
 					sw.Flush();
 				}
 			}
-		}
-
-		[Serializable()]
-		[System.Xml.Serialization.XmlRoot("packages")]
-		public class PackageCollection
-		{
-			[System.Xml.Serialization.XmlElement("package", typeof(Package))]
-			public Package[] Packages { get; set; }
-		}
-
-		[Serializable()]
-		[System.Xml.Serialization.XmlTypeAttribute()]
-		public class Package
-		{
-			[System.Xml.Serialization.XmlAttribute("id")]
-			public string Id { get; set; }
-
-			[System.Xml.Serialization.XmlAttribute("version")]
-			public string Version { get; set; }
 		}
 	}
 }
